@@ -1,0 +1,13 @@
+@use '../style/mixins';
+
+.Font {
+  color: inherit;
+
+  &.format {
+    @include mixins.font-rules('display');
+    @include mixins.font-rules('headline');
+    @include mixins.font-rules('title');
+    @include mixins.font-rules('body');
+    @include mixins.font-rules('label');
+  }
+}

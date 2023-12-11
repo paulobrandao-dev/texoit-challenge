@@ -1,0 +1,18 @@
+@use '../style/mixins';
+
+#ListPage {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 24px;
+
+  @media screen and (max-width: mixins.$breakpoint_compact_max) {
+    padding: 16px;
+  }
+
+  > header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}

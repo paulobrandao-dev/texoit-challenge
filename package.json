@@ -1,0 +1,50 @@
+{
+  "name": "texoit-challenge",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "husky install",
+    "dev": "vite",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "coverage-ui": "vitest --coverage --ui",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,scss}": "prettier --write",
+    "src/**/*.{ts,tsx}": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.13.4",
+    "clsx": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "@vitest/coverage-istanbul": "^1.0.4",
+    "@vitest/ui": "^1.0.4",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "happy-dom": "^12.10.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "sass": "^1.69.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vitest": "^1.0.4"
+  }
+}

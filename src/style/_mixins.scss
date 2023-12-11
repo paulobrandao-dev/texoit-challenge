@@ -1,0 +1,46 @@
+$breakpoint_compact_min: 0;
+$breakpoint_compact_max: 599px;
+$breakpoint_medium_min: 600px;
+$breakpoint_medium_max: 839px;
+$breakpoint_expanded_min: 840px;
+
+@mixin font-rules($scale) {
+  &-#{$scale}-large {
+    font: var(--text-#{$scale}-large);
+  }
+
+  &-#{$scale}-medium {
+    font: var(--text-#{$scale}-medium);
+  }
+
+  &-#{$scale}-small {
+    font: var(--text-#{$scale}-small);
+  }
+}
+
+@mixin state-layer() {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: 0;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity 300ms var(--ease-standard);
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: var(--opacity-hover);
+  }
+
+  &:focus::before {
+    opacity: var(--opacity-focus);
+  }
+}
