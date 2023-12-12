@@ -15,39 +15,81 @@ interface Props {
 
 export function DataList({ data, isLoading, onChangePage }: Props) {
   return (
-    <Card as="section" variant="filled" id="data-list">
-      <CardContent as="header" className="row">
-        <Font as="span" format="title-large" className="col-id">
+    <Card
+      as="section"
+      variant="filled"
+      id="data-list"
+      role="grid"
+      aria-live="assertive"
+      aria-busy={isLoading ? 'true' : 'false'}
+    >
+      <CardContent as="header" className="row" role="row">
+        <Font
+          as="span"
+          format="title-large"
+          className="col-id"
+          role="columnheader"
+        >
           ID
         </Font>
-        <Font as="span" format="title-large" className="col-year">
+        <Font
+          as="span"
+          format="title-large"
+          className="col-year"
+          role="columnheader"
+        >
           Year
         </Font>
-        <Font as="span" format="title-large" className="col-title">
+        <Font
+          as="span"
+          format="title-large"
+          className="col-title"
+          role="columnheader"
+        >
           Title
         </Font>
-        <Font as="span" format="title-large" className="col-winner">
+        <Font
+          as="span"
+          format="title-large"
+          className="col-winner"
+          role="columnheader"
+        >
           Winner
         </Font>
       </CardContent>
       {isLoading && (
-        <CardContent as="div" className="loader">
+        <CardContent as="div" className="loader" role="status">
           <CircularProgress />
         </CardContent>
       )}
       {!isLoading &&
         data?.content.map(movie => (
-          <CardContent key={movie.id} as="div" className="row movie">
-            <Font as="span" format="body-large" className="col-id">
+          <CardContent key={movie.id} as="div" className="row movie" role="row">
+            <Font as="span" format="body-large" className="col-id" role="cell">
               {movie.id}
             </Font>
-            <Font as="span" format="body-large" className="col-year">
+            <Font
+              as="span"
+              format="body-large"
+              className="col-year"
+              role="cell"
+            >
               {movie.year}
             </Font>
-            <Font as="span" format="body-large" className="col-title">
+            <Font
+              as="span"
+              format="body-large"
+              className="col-title"
+              role="cell"
+            >
               {movie.title}
             </Font>
-            <Font as="span" format="body-large" className="col-winner">
+            <Font
+              as="span"
+              format="body-large"
+              className="col-winner"
+              role="cell"
+            >
               {movie.winner ? 'Yes' : 'No'}
             </Font>
           </CardContent>

@@ -1,8 +1,9 @@
+import { SVGProps } from 'react';
 import './CircularProgress.scss';
 
-export const CircularProgress = () => {
+export const CircularProgress = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg className="CircularProgress">
+    <svg className="CircularProgress" {...props}>
       <circle
         className="path"
         cx="50"

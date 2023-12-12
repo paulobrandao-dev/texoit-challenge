@@ -20,16 +20,18 @@ interface PageButtonProps {
 
 const PageButton = ({ page, onClick, active }: PageButtonProps) => {
   return (
-    <ButtonIcon variant={active ? 'filled' : 'standard'} disabled={active}>
-      <Font
-        as="span"
-        format="body-medium"
-        onClick={() => {
-          if (!active) {
-            onClick(page);
-          }
-        }}
-      >
+    <ButtonIcon
+      variant={active ? 'filled' : 'standard'}
+      disabled={active}
+      aria-current={active ? 'page' : undefined}
+      aria-label={`page: ${page + 1}`}
+      onClick={() => {
+        if (!active) {
+          onClick(page);
+        }
+      }}
+    >
+      <Font as="span" format="body-medium">
         {page + 1}
       </Font>
     </ButtonIcon>
@@ -83,8 +85,9 @@ export const Paginator = ({
         <ButtonIcon
           onClick={() => onChangePage(currentPage - 1)}
           disabled={currentPage === 0}
+          aria-label="Skip previous"
         >
-          <Icon>skip_previous</Icon>
+          <Icon aria-hidden="true">skip_previous</Icon>
         </ButtonIcon>
         <PageButton
           page={0}
@@ -119,8 +122,9 @@ export const Paginator = ({
         <ButtonIcon
           onClick={() => onChangePage(currentPage + 1)}
           disabled={currentPage === totalPages - 1}
+          aria-label="Skip next"
         >
-          <Icon>skip_next</Icon>
+          <Icon aria-hidden="true">skip_next</Icon>
         </ButtonIcon>
       </div>
     </footer>

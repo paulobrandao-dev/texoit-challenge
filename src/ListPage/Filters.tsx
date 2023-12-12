@@ -34,7 +34,6 @@ export function ListFilters({ onFilter }: Props) {
   }, [year]);
 
   const handleReset = useCallback(() => {
-    console.log('call reset');
     setWinnersFilter(undefined);
     setYearFilter(undefined);
   }, []);
@@ -55,6 +54,7 @@ export function ListFilters({ onFilter }: Props) {
     <form id="list-filters" onSubmit={handleSubmit} onReset={handleReset}>
       <TextField
         label="Filter by year"
+        placeholder="4 digits"
         value={year || ''}
         type="number"
         onChange={e => {
@@ -85,7 +85,11 @@ export function ListFilters({ onFilter }: Props) {
         <Button
           type="reset"
           variant="tonal"
-          icon={<Icon size={20}>filter_alt_off</Icon>}
+          icon={
+            <Icon size={20} aria-hidden="true">
+              filter_alt_off
+            </Icon>
+          }
           disabled={[winner, year].every(value => value === undefined)}
           fullWidth={media.isCompactScreen}
         >
@@ -93,7 +97,11 @@ export function ListFilters({ onFilter }: Props) {
         </Button>
         <Button
           type="submit"
-          icon={<Icon size={20}>filter_alt</Icon>}
+          icon={
+            <Icon size={20} aria-hidden="true">
+              filter_alt
+            </Icon>
+          }
           fullWidth={media.isCompactScreen}
         >
           Filter

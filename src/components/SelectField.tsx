@@ -28,7 +28,6 @@ export const SelecField = ({
   const [menuIsOpen, openMenu] = useState<boolean>(false);
   const [currentValue, setValue] = useState<string | number>();
   const [anchorMenu, setAnchorMenu] = useState<HTMLDivElement | null>(null);
-  const menuAnchor = useRef<HTMLDivElement>(null);
   const refValue = useRef<string | number | undefined>();
 
   const menuItems = useMemo((): MenuItem[] => {
@@ -67,12 +66,13 @@ export const SelecField = ({
 
   return (
     <div
-      ref={menuAnchor}
       className={clsx('SelectField', { 'is-disabled': disabled }, className)}
       onClick={e => {
         setAnchorMenu(e.currentTarget);
         openMenu(true);
       }}
+      role="listbox"
+      aria-label={label}
     >
       <TextField
         label={label}
@@ -94,6 +94,7 @@ export const SelecField = ({
         anchor={anchorMenu}
         anchorFullWidth
         items={menuItems}
+        aria-label={label ? `Options: ${label}` : undefined}
       />
     </div>
   );
