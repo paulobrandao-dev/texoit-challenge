@@ -1,20 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
 import { useMovieList } from '../api';
 import { Font } from '../components';
+import { DataList } from './DataList';
+import { ListFilters } from './Filters';
+import { INITIAL_VALUES, listPageReducer } from './reducer';
 import './ListPage.scss';
 
 export function ListPage() {
-  // const [page, setPage] = useState<number>(0);
-  const movieList = useMovieList({
-    page: 0,
-    size: 15,
-    year: 2019,
-  });
+  const [params, setParams] = useReducer(listPageReducer, INITIAL_VALUES);
+  const movieList = useMovieList(params);
 
   useEffect(() => {
-    if (movieList.data) {
-      console.log(movieList.data);
-    } else if (movieList.isError) {
+    if (movieList.isError) {
       console.error(movieList.error);
     }
   }, [movieList]);
@@ -26,6 +23,12 @@ export function ListPage() {
           List Movies
         </Font>
       </header>
+      <ListFilters onFilter={filters => setParams({ ...filters, page: 0 })} />
+      <DataList
+        data={movieList.data}
+        isLoading={movieList.isLoading}
+        onChangePage={page => setParams({ page })}
+      />
     </article>
   );
 }

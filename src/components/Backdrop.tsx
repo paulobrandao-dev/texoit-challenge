@@ -46,13 +46,9 @@ export const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
       });
     }, [alignX, alignY, disablePointer, isTransparent, restingLevel]);
 
-    const handleClick = useCallback(
-      (e: MouseEvent) => {
-        console.log(e.eventPhase);
-        onClose && onClose();
-      },
-      [onClose],
-    );
+    const handleClick = useCallback(() => {
+      onClose && onClose();
+    }, [onClose]);
 
     const backdrop = useRef<HTMLDivElement>(document.createElement('div'));
     backdrop.current.role = 'presentation';

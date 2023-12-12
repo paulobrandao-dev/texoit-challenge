@@ -5,6 +5,9 @@
   flex-direction: column;
   padding: 24px;
   gap: 24px;
+  width: 100%;
+  max-width: 940px;
+  margin-inline: auto;
 
   @media screen and (max-width: mixins.$breakpoint_compact_max) {
     padding: 16px;
@@ -14,5 +17,119 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    gap: 24px;
+  }
+
+  > form#list-filters {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+
+    @media screen and (min-width: mixins.$breakpoint_compact_min) and (max-width: mixins.$breakpoint_medium_max) {
+      gap: 16px;
+    }
+
+    @media screen and (min-width: mixins.$breakpoint_expanded_min) {
+      gap: 24px;
+    }
+
+    > .actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+
+    @media screen and (max-width: mixins.$breakpoint_compact_max) {
+      > .TextField,
+      > .SelectField,
+      > .actions {
+        grid-column: auto / span 12;
+      }
+
+      > .actions {
+        flex-direction: column;
+      }
+    }
+
+    @media screen and (min-width: mixins.$breakpoint_medium_min) and (max-width: mixins.$breakpoint_medium_max) {
+      > .TextField,
+      > .SelectField {
+        grid-column: auto / span 6;
+      }
+
+      > .actions {
+        grid-column: auto / span 12;
+      }
+    }
+
+    @media screen and (min-width: mixins.$breakpoint_expanded_min) {
+      > .TextField,
+      > .SelectField,
+      > .actions {
+        grid-column: auto / span 4;
+      }
+    }
+  }
+
+  > section#data-list {
+    > .row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 8px;
+
+      @media screen and (max-width: mixins.$breakpoint_compact_max) {
+        > .col-id {
+          grid-column: auto / span 1;
+        }
+
+        > .col-year {
+          grid-column: auto / span 2;
+        }
+
+        > .col-title {
+          grid-column: auto / span 6;
+        }
+
+        > .col-winner {
+          grid-column: auto / span 3;
+        }
+      }
+
+      @media screen and (min-width: mixins.$breakpoint_medium_min) {
+        > .col-id,
+        > .col-winner,
+        > .col-year {
+          grid-column: auto / span 2;
+        }
+
+        > .col-title {
+          grid-column: auto / span 6;
+        }
+      }
+    }
+
+    > header {
+      padding-block: 24px;
+      border-bottom: 1px solid var(--color-outline);
+    }
+
+    > .movie {
+      padding-block: 12px;
+
+      &:nth-child(odd) {
+        background-color: var(--color-surface-container-highest);
+      }
+    }
+
+    > .loader {
+      align-items: center;
+      padding-block: 12px;
+    }
+
+    > .paginator {
+      border-top: 1px solid var(--color-outline);
+      padding-block: 12px;
+    }
   }
 }

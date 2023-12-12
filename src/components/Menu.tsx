@@ -4,12 +4,13 @@ import { useMediaQuery } from '../utils';
 import { Backdrop, Font } from './';
 import './Menu.scss';
 
-interface MenuItem {
+export interface MenuItem {
   label: string;
-  onClick: () => void;
+  onClick?: () => void;
   startNode?: ReactNode;
   endNode?: ReactNode;
   isCurrent?: boolean;
+  disabled?: boolean;
 }
 
 interface MenuProps extends HTMLAttributes<HTMLMenuElement> {
@@ -18,6 +19,7 @@ interface MenuProps extends HTMLAttributes<HTMLMenuElement> {
   anchor: HTMLElement | null;
   items: Array<MenuItem>;
   anchorOriginX?: 'left' | 'right';
+  anchorFullWidth?: boolean;
 }
 export const Menu = ({
   isOpen,
@@ -25,6 +27,7 @@ export const Menu = ({
   items,
   anchor,
   anchorOriginX,
+  anchorFullWidth,
   className,
   ...props
 }: MenuProps) => {
@@ -43,11 +46,13 @@ export const Menu = ({
     const bottom = !isTop ? Math.round(media.height - coords.top) : undefined;
     const left = isLeft ? coords.left : undefined;
     const right = !isLeft ? Math.round(media.width - coords.right) : undefined;
+    const transformOriginHorizontalSide = isLeft ? 'left' : 'right';
     const transformOrigin = `${isTop ? 'top' : 'bottom'} ${
-      isLeft ? 'left' : 'right'
+      anchorFullWidth ? 'center' : transformOriginHorizontalSide
     }`;
-    return { top, bottom, left, right, transformOrigin };
-  }, [anchor, anchorOriginX, media.height, media.width]);
+    const width = anchorFullWidth ? coords.width : undefined;
+    return { top, bottom, left, right, transformOrigin, width };
+  }, [anchor, anchorFullWidth, anchorOriginX, media.height, media.width]);
 
   return (
     <Backdrop
@@ -58,7 +63,11 @@ export const Menu = ({
     >
       <menu
         onClick={e => e.stopPropagation()}
-        className={clsx('Menu', { open: isOpen }, className)}
+        className={clsx(
+          'Menu',
+          { 'is-open': isOpen, 'anchor-width': anchorFullWidth },
+          className,
+        )}
         style={positions}
         {...props}
       >
@@ -67,11 +76,12 @@ export const Menu = ({
             <button
               type="button"
               onClick={() => {
-                item.onClick();
+                item.onClick && item.onClick();
                 onClose();
               }}
               role="menuitem"
               aria-current={item.isCurrent}
+              disabled={item.disabled}
             >
               {item.startNode && (
                 <span className="side-node">{item.startNode}</span>

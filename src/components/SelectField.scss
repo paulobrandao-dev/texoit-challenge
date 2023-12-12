@@ -1,0 +1,10 @@
+.SelectField {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  cursor: pointer;
+
+  &.is-disabled {
+    pointer-events: none;
+  }
+}

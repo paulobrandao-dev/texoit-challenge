@@ -1,0 +1,60 @@
+.Card {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: var(--shape-medium);
+  transition: box-shadow 300ms var(--ease-standard);
+
+  &.variant-outlined {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    border: 1px solid var(--color-outline);
+
+    &:disabled,
+    &.is-disabled {
+      border-color: var(--color-outline-disabled);
+    }
+  }
+
+  &.variant-filled {
+    background-color: var(--color-surface-variant);
+    color: var(--color-on-surface);
+
+    &:hover {
+      box-shadow: var(--elevation-1);
+    }
+
+    &:disabled,
+    &.is-disabled {
+      background-color: var(--color-surface);
+      opacity: 0.38;
+      box-shadow: var(--elevation-1);
+    }
+  }
+
+  &.variant-elevated {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    box-shadow: var(--elevation-1);
+
+    &:hover {
+      box-shadow: var(--elevation-2);
+    }
+
+    &:disabled,
+    &.is-disabled {
+      background-color: var(--color-surface-variant);
+      opacity: 0.38;
+      box-shadow: none;
+    }
+  }
+}
+
+.CardContent {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-inline: 16px;
+}

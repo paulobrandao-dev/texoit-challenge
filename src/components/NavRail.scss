@@ -2,6 +2,7 @@
 
 .NavRail {
   display: flex;
+  flex-shrink: 0;
   gap: 12px;
 
   @media screen and (max-width: mixins.$breakpoint_compact_max) {

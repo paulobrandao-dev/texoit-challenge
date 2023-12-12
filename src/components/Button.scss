@@ -1,0 +1,143 @@
+.Button {
+  min-width: 48px;
+  height: 40px;
+  gap: 8px;
+  border-radius: var(--shape-extra-large);
+  transition-property: box-shadow, border-color;
+  transition-duration: 300ms;
+  transition-timing-function: var(--ease-standard);
+
+  &.full-width {
+    width: 100%;
+  }
+
+  & > .material-symbols-outlined,
+  & > .Font {
+    position: relative;
+    z-index: 1;
+  }
+
+  &.variant-text {
+    padding-inline: 12px;
+    color: var(--color-primary);
+
+    &.with-icon {
+      padding-inline-end: 16px;
+    }
+
+    &:disabled {
+      color: var(--color-on-surface);
+      opacity: 0.38;
+    }
+  }
+
+  &.variant-outlined {
+    padding-inline: 24px;
+    color: var(--color-primary);
+    border: 1px solid var(--color-outline);
+
+    &.with-icon {
+      padding-inline-start: 16px;
+    }
+
+    &:focus::after {
+      border-color: var(--color-primary);
+    }
+
+    &:disabled {
+      color: var(--color-on-surface);
+      border-color: var(--color-outline-disabled);
+
+      & > .Font,
+      & > .material-symbols-outlined {
+        opacity: 0.38;
+      }
+    }
+  }
+
+  &.variant-tonal {
+    padding-inline: 24px;
+    background-color: var(--color-secondary-container);
+    color: var(--color-on-secondary-container);
+
+    &.with-icon {
+      padding-inline-start: 16px;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: var(--color-on-surface);
+
+      &::before {
+        opacity: var(--opacity-focus);
+      }
+
+      & > .Font,
+      & > .material-symbols-outlined {
+        opacity: 0.38;
+      }
+    }
+
+    &:hover {
+      box-shadow: var(--elevation-1);
+    }
+  }
+
+  &.variant-filled {
+    padding-inline: 24px;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+
+    &.with-icon {
+      padding-inline-start: 16px;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: var(--color-on-surface);
+
+      &::before {
+        opacity: var(--opacity-focus);
+      }
+
+      & > .Font,
+      & > .material-symbols-outlined {
+        opacity: 0.38;
+      }
+    }
+
+    &:hover {
+      box-shadow: var(--elevation-1);
+    }
+  }
+
+  &.variant-elevated {
+    padding-inline: 24px;
+    background-color: var(--color-surface-variant);
+    color: var(--color-primary);
+    box-shadow: var(--elevation-1);
+
+    &.with-icon {
+      padding-inline-start: 16px;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      box-shadow: none;
+
+      &::before {
+        opacity: var(--opacity-focus);
+      }
+
+      & > .Font,
+      & > .material-symbols-outlined {
+        opacity: 0.38;
+        color: var(--color-on-surface);
+      }
+    }
+
+    &:hover {
+      box-shadow: var(--elevation-2);
+    }
+  }
+}

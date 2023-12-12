@@ -1,3 +1,12 @@
+import { RequestPattern } from '../utils';
+
+export interface ApiParams extends RequestPattern {
+  page?: number;
+  size?: number;
+  winner?: boolean;
+  year?: number;
+  projection?: string;
+}
 export interface Movie {
   id: number;
   year: number;

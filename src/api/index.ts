@@ -1,7 +1,8 @@
-import { useCallback } from 'react';
-import { RequestPattern, useSearchParamsCreator } from '../utils';
 import { useQuery } from '@tanstack/react-query';
-import {
+import { useCallback } from 'react';
+import { useSearchParamsCreator } from '../utils';
+import type {
+  ApiParams,
   ListResponse,
   Movie,
   MultipleWinnerYear,
@@ -10,14 +11,6 @@ import {
   WinIntervalResponse,
   WinnerStudiosResponse,
 } from './types';
-
-interface ApiParams extends RequestPattern {
-  page?: number;
-  size?: number;
-  winner?: boolean;
-  year?: number;
-  projection?: string;
-}
 
 const API_URL = 'https://tools.texoit.com/backend-java/api/movies';
 
