@@ -999,5 +999,197 @@
     "first": true,
     "numberOfElements": 1,
     "empty": false
-  }
+  },
+  "response_dash_winner_interval": {
+    "min": [
+      {
+        "producer": "Joel Silver",
+        "interval": 1,
+        "previousWin": 1990,
+        "followingWin": 1991
+      }
+    ],
+    "max": [
+      {
+        "producer": "Matthew Vaughn",
+        "interval": 13,
+        "previousWin": 2002,
+        "followingWin": 2015
+      }
+    ]
+  },
+  "response_dash_multiple_winners": {
+    "years": [
+      {
+        "year": 1986,
+        "winnerCount": 2
+      },
+      {
+        "year": 1990,
+        "winnerCount": 2
+      },
+      {
+        "year": 2015,
+        "winnerCount": 2
+      }
+    ]
+  },
+  "response_dash_winners_studios": {
+    "studios": [
+      {
+        "name": "Columbia Pictures",
+        "winCount": 7
+      },
+      {
+        "name": "Paramount Pictures",
+        "winCount": 6
+      },
+      {
+        "name": "Warner Bros.",
+        "winCount": 5
+      },
+      {
+        "name": "20th Century Fox",
+        "winCount": 4
+      },
+      {
+        "name": "MGM",
+        "winCount": 3
+      },
+      {
+        "name": "Universal Studios",
+        "winCount": 2
+      },
+      {
+        "name": "Universal Pictures",
+        "winCount": 2
+      },
+      {
+        "name": "Hollywood Pictures",
+        "winCount": 2
+      },
+      {
+        "name": "Nickelodeon Movies",
+        "winCount": 1
+      },
+      {
+        "name": "C2 Pictures",
+        "winCount": 1
+      },
+      {
+        "name": "Summit Entertainment",
+        "winCount": 1
+      },
+      {
+        "name": "Hasbro",
+        "winCount": 1
+      },
+      {
+        "name": "Associated Film Distribution",
+        "winCount": 1
+      },
+      {
+        "name": "Revolution Studios",
+        "winCount": 1
+      },
+      {
+        "name": "First Look Pictures",
+        "winCount": 1
+      },
+      {
+        "name": "Focus Features",
+        "winCount": 1
+      },
+      {
+        "name": "Cannon Films",
+        "winCount": 1
+      },
+      {
+        "name": "United Artists",
+        "winCount": 1
+      },
+      {
+        "name": "Touchstone Pictures",
+        "winCount": 1
+      },
+      {
+        "name": "Samuel Goldwyn Films",
+        "winCount": 1
+      },
+      {
+        "name": "Quality Flix",
+        "winCount": 1
+      },
+      {
+        "name": "TriStar Pictures",
+        "winCount": 1
+      },
+      {
+        "name": "Franchise Pictures",
+        "winCount": 1
+      },
+      {
+        "name": "Relativity Media",
+        "winCount": 1
+      },
+      {
+        "name": "Castle Rock Entertainment",
+        "winCount": 1
+      },
+      {
+        "name": "Screen Gems",
+        "winCount": 1
+      },
+      {
+        "name": "Triumph Releasing",
+        "winCount": 1
+      },
+      {
+        "name": "DreamWorks",
+        "winCount": 1
+      }
+    ]
+  },
+  "response_dash_winner_by_year_1984": [
+    {
+      "id": 26,
+      "year": 1984,
+      "title": "Bolero",
+      "studios": [
+        "Cannon Films"
+      ],
+      "producers": [
+        "Bo Derek"
+      ],
+      "winner": true
+    }
+  ],
+  "response_dash_winner_by_year_1986": [
+    {
+      "id": 36,
+      "year": 1986,
+      "title": "Howard the Duck",
+      "studios": [
+        "Universal Studios"
+      ],
+      "producers": [
+        "Gloria Katz"
+      ],
+      "winner": true
+    },
+    {
+      "id": 37,
+      "year": 1986,
+      "title": "Under the Cherry Moon",
+      "studios": [
+        "Warner Bros."
+      ],
+      "producers": [
+        "Bob Cavallo",
+        "Joe Ruffalo",
+        "Steve Fargnoli"
+      ],
+      "winner": true
+    }
+  ]
 }

@@ -44,6 +44,7 @@ export function MultipleWinners() {
             as="div"
             className="row entry"
             role="row"
+            aria-label="Year with multiple winner"
           >
             <Font as="span" format="body-large">
               {winner.year}

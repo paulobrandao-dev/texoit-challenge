@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useWinnerByYear } from '../api';
-import { useOnlyNumberInput, useToast } from '../utils';
 import {
   ButtonIcon,
   Card,
@@ -10,6 +9,7 @@ import {
   Icon,
   TextField,
 } from '../components';
+import { useOnlyNumberInput, useToast } from '../utils';
 
 export function WinnerByYear() {
   const [value, setValue] = useState<number>();
@@ -102,6 +102,7 @@ export function WinnerByYear() {
             as="div"
             className="row entry"
             role="row"
+            aria-label="Movie winner in this year"
           >
             <Font as="span" format="body-large">
               {winner.id}

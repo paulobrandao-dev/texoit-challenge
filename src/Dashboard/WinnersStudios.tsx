@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useWinnersStudios } from '../api';
-import { useToast } from '../utils';
 import { Card, CardContent, CircularProgress, Font } from '../components';
+import { useToast } from '../utils';
 
 export function WinnersStudios() {
   const winnersStudios = useWinnersStudios();
@@ -44,6 +44,7 @@ export function WinnersStudios() {
             as="div"
             className="row entry"
             role="row"
+            aria-label="Studio winner"
           >
             <Font as="span" format="body-large">
               {winner.name}

@@ -11,6 +11,16 @@ vi.mock('@tanstack/react-query', () => ({
   useQuery: (config: object) => mockQuery(config),
 }));
 
+const mockToast = vi.fn();
+
+vi.mock('../src/utils', async () => {
+  const actual = await vi.importActual('../src/utils');
+  return {
+    ...actual,
+    useToast: () => mockToast,
+  };
+});
+
 describe('ListPage', () => {
   const user = userEvent.setup();
 
@@ -63,9 +73,7 @@ describe('ListPage', () => {
 
     const { rerender } = render(<ListPage />);
     await waitFor(() => {
-      expect(
-        screen.queryByRole('heading', { name: 'List Movies' }),
-      ).not.toBeNull();
+      expect(mockToast).toBeCalled();
     });
     expect(screen.queryByRole('columnheader', { name: 'ID' })).not.toBeNull();
     rerender(<ListPage />);

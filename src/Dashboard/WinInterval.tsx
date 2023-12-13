@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { useWinInterval } from '../api';
-import { useToast } from '../utils';
 import { Card, CardContent, CircularProgress, Font } from '../components';
+import { useToast } from '../utils';
 
 export function WinInterval() {
   const winInterval = useWinInterval();
@@ -35,7 +35,12 @@ export function WinInterval() {
                 Maximum
               </Font>
             </CardContent>
-            <CardContent as="div" className="row header" role="row">
+            <CardContent
+              as="div"
+              className="row header"
+              role="row"
+              aria-label="Longest interval between wins"
+            >
               <Font as="span" format="label-medium" role="columnheader">
                 Producer
               </Font>
@@ -49,7 +54,12 @@ export function WinInterval() {
                 Following Year
               </Font>
             </CardContent>
-            <CardContent as="div" className="row entry" role="row">
+            <CardContent
+              as="div"
+              className="row entry"
+              role="row"
+              aria-label="Shortest interval between wins"
+            >
               <Font as="span" format="body-large">
                 {winner.producer}
               </Font>
