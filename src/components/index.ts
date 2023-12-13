@@ -10,4 +10,5 @@ export * from './Menu';
 export * from './NavRail';
 export * from './Paginator';
 export * from './SelectField';
+export * from './Snackbar';
 export * from './TextField';

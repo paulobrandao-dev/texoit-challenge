@@ -15,6 +15,7 @@
   &.is-scrolled {
     background-color: var(--color-surface-container);
     box-shadow: var(--elevation-2);
+    z-index: 6;
   }
 
   > .logo {

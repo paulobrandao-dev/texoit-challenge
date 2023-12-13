@@ -1,0 +1,79 @@
+.Snackbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 9;
+  padding: 16px;
+
+  &.bottom {
+    &-fab {
+      bottom: 56px;
+      padding-bottom: 24px;
+    }
+
+    &-fablarge {
+      bottom: 96px;
+      padding-bottom: 24px;
+    }
+
+    &-navbar {
+      bottom: 80px;
+      padding-bottom: 24px;
+    }
+
+    &-navbar-fab {
+      bottom: 136px;
+      padding-bottom: 24px;
+    }
+
+    &-navbar-fablarge {
+      bottom: 176px;
+      padding-bottom: 24px;
+    }
+  }
+
+  > .Toast {
+    display: flex;
+    align-items: center;
+    pointer-events: all;
+    background-color: var(--color-inverse-surface);
+    color: var(--color-on-inverse-surface);
+    box-shadow: var(--elevation-3);
+    width: 100%;
+    max-width: 640px;
+    min-height: 48px;
+    max-height: 68px;
+    border-radius: var(--shape-small);
+    overflow: hidden;
+    transition-property: opacity, transform;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    opacity: 0;
+
+    > .Font[role='status'] {
+      padding-inline: 16px;
+      flex: auto;
+    }
+
+    > button.Button.variant-text {
+      color: var(--color-inverse-primary);
+    }
+
+    &.show {
+      transition-duration: 400ms;
+      transition-timing-function: var(--ease-emphasized-decelerated);
+      transform: scaleY(1);
+      opacity: 1;
+
+      &.hide {
+        transition-duration: 200ms;
+        transition-timing-function: var(--ease-emphasized-accelerated);
+        opacity: 0;
+      }
+    }
+  }
+}

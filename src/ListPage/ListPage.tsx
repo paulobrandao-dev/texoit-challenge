@@ -5,16 +5,20 @@ import { DataList } from './DataList';
 import { ListFilters } from './Filters';
 import { INITIAL_VALUES, listPageReducer } from './reducer';
 import './ListPage.scss';
+import { useToast } from '../utils';
 
 export function ListPage() {
   const [params, setParams] = useReducer(listPageReducer, INITIAL_VALUES);
   const movieList = useMovieList(params);
+  const toast = useToast();
 
   useEffect(() => {
     if (movieList.isError) {
-      console.error(movieList.error);
+      toast({
+        message: movieList.error,
+      });
     }
-  }, [movieList]);
+  }, [movieList, toast]);
 
   return (
     <article id="ListPage">

@@ -26,7 +26,7 @@ export function DataList({ data, isLoading, onChangePage }: Props) {
       <CardContent as="header" className="row" role="row">
         <Font
           as="span"
-          format="title-large"
+          format="label-large"
           className="col-id"
           role="columnheader"
         >
@@ -34,7 +34,7 @@ export function DataList({ data, isLoading, onChangePage }: Props) {
         </Font>
         <Font
           as="span"
-          format="title-large"
+          format="label-large"
           className="col-year"
           role="columnheader"
         >
@@ -42,7 +42,7 @@ export function DataList({ data, isLoading, onChangePage }: Props) {
         </Font>
         <Font
           as="span"
-          format="title-large"
+          format="label-large"
           className="col-title"
           role="columnheader"
         >
@@ -50,7 +50,7 @@ export function DataList({ data, isLoading, onChangePage }: Props) {
         </Font>
         <Font
           as="span"
-          format="title-large"
+          format="label-large"
           className="col-winner"
           role="columnheader"
         >

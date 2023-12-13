@@ -1,11 +1,17 @@
 import { RequestPattern } from '../utils';
 
+export enum ApiProjection {
+  multipleWinners = 'years-with-multiple-winners',
+  studiosWinCount = 'studios-with-win-count',
+  winIntervals = 'max-min-win-interval-for-producers',
+}
+
 export interface ApiParams extends RequestPattern {
   page?: number;
   size?: number;
   winner?: boolean;
   year?: number;
-  projection?: string;
+  projection?: ApiProjection;
 }
 export interface Movie {
   id: number;

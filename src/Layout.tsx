@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { AppBar, NavRail } from './components';
+import { AppBar, NavRail, Snackbar } from './components';
 import { useMediaQuery, useTheme } from './utils';
 
 export function Layout() {
@@ -19,6 +19,7 @@ export function Layout() {
         <Outlet />
       </main>
       {media.isCompactScreen && <AppBar />}
+      <Snackbar />
     </>
   );
 }

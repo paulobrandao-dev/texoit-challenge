@@ -1,0 +1,103 @@
+@use '../style/mixins';
+
+#Dashboard {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 24px;
+  gap: 24px;
+  width: 100%;
+  max-width: 940px;
+  margin-inline: auto;
+
+  @media screen and (max-width: mixins.$breakpoint_compact_max) {
+    padding: 16px;
+
+    > section.Card {
+      grid-column: auto / span 12;
+    }
+  }
+
+  @media screen and (min-width: mixins.$breakpoint_medium_min) {
+    > section.Card {
+      grid-column: auto / span 6;
+    }
+  }
+
+  > section.Card {
+    > header {
+      padding-block: 12px;
+      flex: unset;
+    }
+
+    > .loader {
+      align-items: center;
+    }
+
+    > .row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      padding-block: 12px;
+      gap: 8px;
+      flex: unset;
+
+      &.header {
+        background-color: var(--color-primary-container);
+        color: var(--color-on-primary-container);
+      }
+
+      &.entry {
+        @include mixins.state-layer;
+        &:last-of-type {
+          border-radius: 0 0 12px 12px;
+        }
+      }
+    }
+  }
+
+  > #card-multiple-winners,
+  > #card-studio-winners {
+    .row {
+      > span {
+        grid-column: auto / span 6;
+      }
+    }
+  }
+
+  > #card-interval-winners {
+    .caption {
+      padding-block: 8px;
+    }
+
+    .row {
+      > span {
+        grid-column: auto / span 3;
+
+        &:first-of-type {
+          grid-column: auto / span 4;
+        }
+
+        &:nth-child(2) {
+          grid-column: auto / span 2;
+        }
+      }
+    }
+  }
+
+  > #card-winner-year {
+    .row {
+      > span {
+        &:first-of-type {
+          grid-column: auto / span 2;
+        }
+
+        &:nth-child(2) {
+          grid-column: auto / span 3;
+        }
+
+        &:last-of-type {
+          grid-column: auto / span 7;
+        }
+      }
+    }
+  }
+}
