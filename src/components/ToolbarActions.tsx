@@ -13,7 +13,10 @@ export function ToolbarActions() {
       <ButtonIcon
         variant="outlined"
         onClick={() => {
-          window.open('https://github.com', '_blank');
+          window.open(
+            'https://github.com/paulobrandao-dev/texoit-challenge',
+            '_blank',
+          );
         }}
         aria-label="Go to GitHub repo"
       >
