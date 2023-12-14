@@ -49,7 +49,7 @@ const Toast = ({ message, duration, action, afterHide }: ToastProps) => {
 
   return (
     <div className={clsx('Toast', { show, hide })}>
-      <Font scale="body" size="medium" role="status">
+      <Font format="body-medium" role="status">
         {message}
       </Font>
       {action && (
@@ -123,6 +123,7 @@ export const Snackbar = forwardRef<HTMLElement, SnackbarProps>(
         ref={ref}
         className={clsx('Snackbar', `bottom-${bottom || 'none'}`, className)}
         {...props}
+        aria-label="Snackbar"
       >
         {toast}
       </aside>

@@ -40,19 +40,19 @@ export function ToolbarActions() {
           {
             label: 'System',
             onClick: () => theme.applyThemeScheme('system'),
-            startNode: <Icon>settings</Icon>,
+            startNode: <Icon aria-hidden="true">settings</Icon>,
             isCurrent: theme.currentThemeScheme === 'system',
           },
           {
             label: 'Light',
             onClick: () => theme.applyThemeScheme('light'),
-            startNode: <Icon>light_mode</Icon>,
+            startNode: <Icon aria-hidden="true">light_mode</Icon>,
             isCurrent: theme.currentThemeScheme === 'light',
           },
           {
             label: 'Dark',
             onClick: () => theme.applyThemeScheme('dark'),
-            startNode: <Icon>dark_mode</Icon>,
+            startNode: <Icon aria-hidden="true">dark_mode</Icon>,
             isCurrent: theme.currentThemeScheme === 'dark',
           },
         ]}

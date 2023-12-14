@@ -26,20 +26,19 @@ export function useTheme() {
         document.documentElement.dataset.theme = systemScheme;
         break;
     }
-    sessionStorage.setItem(THEME_STORAGE_NAME, scheme);
+    localStorage.setItem(THEME_STORAGE_NAME, scheme);
   }, []);
 
   const initTheme = useCallback(() => {
     applyThemeScheme(
-      (sessionStorage.getItem(THEME_STORAGE_NAME) as ThemeSchemeName) ||
-        'system',
+      (localStorage.getItem(THEME_STORAGE_NAME) as ThemeSchemeName) || 'system',
     );
   }, [applyThemeScheme]);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
       setScheme(
-        (sessionStorage.getItem(THEME_STORAGE_NAME) as ThemeSchemeName) ||
+        (localStorage.getItem(THEME_STORAGE_NAME) as ThemeSchemeName) ||
           'system',
       );
     });

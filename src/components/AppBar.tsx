@@ -34,6 +34,7 @@ export const AppBar = ({
     <header
       className={clsx('AppBar', { 'is-scrolled': isScrolled }, className)}
       {...props}
+      aria-label="app bar"
     >
       <div className="logo">
         <img src="/texo-it_icon.png" alt="Texo IT" />

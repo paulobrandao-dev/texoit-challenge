@@ -6,10 +6,21 @@ export default mergeConfig(
   defineConfig({
     test: {
       environment: 'happy-dom',
+      environmentOptions: {
+        happyDOM: {
+          settings: {
+            device: {
+              mediaType: 'screen',
+              prefersColorScheme: 'light',
+            },
+          },
+          url: 'http://localhost',
+        },
+      },
       coverage: {
         provider: 'istanbul',
         reporter: ['text', 'html', 'clover', 'json', 'json-summary'],
       },
     },
-  }) as UserConfig
+  }) as UserConfig,
 );

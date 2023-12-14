@@ -69,7 +69,6 @@ describe('API unity tests', () => {
     expect((await result.current).isError).toBeTruthy();
     expect((await result.current).error).toEqual('Missing data or incorrect');
     expect((await result.current).data).toBeUndefined();
-    console.log('rerender');
     rerender();
     expect((await result.current).isError).toBeFalsy();
     expect((await result.current).data).not.toBeUndefined();
