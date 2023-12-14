@@ -22,15 +22,9 @@ function useApi() {
     switch (statusCode) {
       case 400:
         return 'Missing data or incorrect';
-      case 401:
-        return 'Authorization is required';
-      case 403:
-        return 'Access denied';
-      case 404:
-        return 'Resource not found';
       case 500:
-      case 501:
       case 502:
+      case 503:
         return 'Service temporarily unavailable';
       case 417:
       default:
@@ -83,7 +77,7 @@ export function useMultipleWinners() {
   };
 
   return useQuery<MultipleWinnerYear[], string>({
-    queryKey: [QueryKeyNames.multipleWinners, params],
+    queryKey: [QueryKeyNames.multipleWinners, ApiProjection.multipleWinners],
     queryFn: async () => {
       const result = await api.get<MultipleWinnersResponse>(params);
       return result.years;
@@ -98,7 +92,7 @@ export function useWinnersStudios() {
   };
 
   return useQuery<Studio[], string>({
-    queryKey: [QueryKeyNames.winnerStudios, params],
+    queryKey: [QueryKeyNames.winnerStudios, ApiProjection.studiosWinCount],
     queryFn: async () => {
       const result = await api.get<WinnerStudiosResponse>(params);
       return result.studios;
@@ -113,7 +107,7 @@ export function useWinInterval() {
   };
 
   return useQuery<WinIntervalResponse, string>({
-    queryKey: [QueryKeyNames.producersWinInterval, params],
+    queryKey: [QueryKeyNames.producersWinInterval, ApiProjection.winIntervals],
     queryFn: async () => {
       const result = await api.get<WinIntervalResponse>(params);
       return result;

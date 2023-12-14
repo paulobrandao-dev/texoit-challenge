@@ -1,4 +1,5 @@
-import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React, { ReactNode } from 'react';
 
 const reducer = (
   state: Record<string, unknown>,
@@ -41,3 +42,22 @@ interface StateConsumerProps {
 export const StateConsumer = ({ children }: StateConsumerProps) => (
   <StateWrapperContext.Consumer>{children}</StateWrapperContext.Consumer>
 );
+
+interface QueryWrapperProps {
+  children?: ReactNode;
+}
+
+export const QueryWrapper = ({ children }: QueryWrapperProps) => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        retry: 2,
+      },
+    },
+  });
+
+  return (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+};
