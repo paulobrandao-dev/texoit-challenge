@@ -21,6 +21,7 @@ O desenvolvimento iniciou-se com escolha das melhores ferramentas para compor o 
 - Vitest como framework de teste por ser bem semelhante ao Jest, mas bem mais rápido
 - React 18.2
 - TypeScript - A melhor forma de tornar o código do frontend autodocumentado
+- SASS como pré-processador de CSS
 
 ## Dependências
 
